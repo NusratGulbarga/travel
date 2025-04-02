@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ tour_package.destination.name }}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://truthoftraveling.com/wp-content/uploads/2020/04/Truth-of-Traveling-Machu-Picchu-1-1-scaled.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white text-center">
+                <h1>{{ tour_package.destination.name }}</h1>
+            </div>
+            <div class="card-body">
+                <p class="lead">{{ tour_package.destination.description }}</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Price:</strong> ${{ tour_package.price }}</li>
+                    <li class="list-group-item"><strong>Duration:</strong> {{ tour_package.duration }} days</li>
+                    <li class="list-group-item"><strong>Departure Date:</strong> {{ tour_package.departure_date }}</li>
+                </ul>
+                <div class="text-center mt-4">
+                    <a href="{% url 'book_tour' tour_package.id %}" class="btn btn-success btn-lg">Book this tour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
